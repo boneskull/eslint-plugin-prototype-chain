@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-prototype-chain",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "ESLint plugin to optimize prototype chain lookups",
   "main": "lib/index.js",
   "scripts": {
