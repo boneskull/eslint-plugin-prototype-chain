@@ -1,10 +1,10 @@
 'use strict';
 
-const rule = require('../src/');
+const prototypeChain = require('../../src/rules/prototype-chain');
 const RuleTester = require('eslint/lib/testers/rule-tester');
 
 const ruleTester = new RuleTester();
-ruleTester.run('prototype-chain', rule, {
+ruleTester.run('prototype-chain', prototypeChain, {
   valid: [
     {
       code: `foo && foo`,

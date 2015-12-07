@@ -4,7 +4,7 @@
   "description": "ESLint plugin to optimize prototype chain lookups",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm run lint && babel-node test/index.spec.js",
+    "test": "npm run lint && babel-node test/rules/prototype-chain.spec.js",
     "lint": "eslint src test",
     "build": "babel src -d lib",
     "prepublish": "npm run build"
