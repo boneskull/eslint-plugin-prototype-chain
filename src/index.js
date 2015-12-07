@@ -1,5 +1,9 @@
 'use strict';
 
+if (!global._babelPolyfill) {
+  require('babel-polyfill');
+}
+
 // map of scopes to data
 const scopes = new WeakMap();
 
@@ -31,15 +35,15 @@ function getIdentifiers(node) {
 function prototypeChain(context) {
   // max number of uses of the same lookup to tolerate within a scope
   const max = context.options[0] || 1;
-  // max depth to worry about; 3 implies "foo.bar" can be repeated but not
+  // max depth to worry about; 2 implies "foo.bar" can be repeated but not
   // "foo.bar.baz"
-  const depth = context.options[1] || 2;
+  const depth = context.options[1] || 1;
 
   return {
     MemberExpression(node) {
       if (!node.computed) {
         const identifiers = getIdentifiers(node);
-        if (identifiers.length >= depth) {
+        if (identifiers.length > depth) {
           const scope = context.getScope();
           const data = scopes.get(scope) || {
             reported: new Set(),

@@ -7,6 +7,14 @@ const ruleTester = new RuleTester();
 ruleTester.run('prototype-chain', rule, {
   valid: [
     {
+      code: `foo && foo`,
+      options: [1]
+    },
+    {
+      code: `this && this`,
+      options: [1]
+    },
+    {
       code: 'this.foo',
       options: [1]
     },
@@ -16,11 +24,23 @@ ruleTester.run('prototype-chain', rule, {
     },
     {
       code: 'bar.baz && bar.baz',
-      options: [1, 3]
+      options: [1, 2]
     },
     {
       code: 'bar.baz && bar.baz',
       options: [2]
+    },
+    {
+      code: 'bar.baz && bar.baz',
+      options: [1, 2]
+    },
+    {
+      code: 'bar.baz && bar.baz',
+      options: [1, 3]
+    },
+    {
+      code: 'bar.baz.quux && bar.baz.quux',
+      options: [1, 3]
     }
   ],
   invalid: [
@@ -57,16 +77,6 @@ ruleTester.run('prototype-chain', rule, {
     {
       code: 'bar.baz.quux && bar.baz.quux',
       options: [1, 2],
-      errors: [
-        {
-          message: 'bar.baz.quux used 2 times(s) in the same scope; define a variable instead',
-          type: 'MemberExpression'
-        }
-      ]
-    },
-    {
-      code: 'bar.baz.quux && bar.baz.quux',
-      options: [1, 3],
       errors: [
         {
           message: 'bar.baz.quux used 2 times(s) in the same scope; define a variable instead',
