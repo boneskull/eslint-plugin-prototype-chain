@@ -23,7 +23,7 @@ Add this to your `.eslintrc`, assuming it's a JSON file:
   "plugins": [
     "prototype-chain"
   ],
-  "prototype-chain": [2, 1, 1]
+  "prototype-chain/prototype-chain": [2, 1, 1]
 }
 ```
 
@@ -36,7 +36,7 @@ A configuration such as this:
 
 ```json
 {
-  "prototype-chain": [2, 2, 3]
+  "prototype-chain/prototype-chain": [2, 2, 3]
 }
 ```
 
