@@ -54,6 +54,6 @@
     "eslint": "^1.10.3"
   },
   "dependencies": {
-    "babel-polyfill": "^6.3.14"
+    "babel-polyfill": "^6.13.0"
   }
 }
