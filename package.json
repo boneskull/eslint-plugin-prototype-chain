@@ -51,7 +51,7 @@
     ]
   },
   "peerDependencies": {
-    "eslint": "^1.10.3"
+    "eslint": "^3.7.1"
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14"
